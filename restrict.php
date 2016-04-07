@@ -18,5 +18,5 @@
 	}
 ?>
 
-
+<h2>Welcome <?=$_SESSION["username"];?> (<?=$_SESSION["user_id"];?>)</h2>
 <a href="?logout=1">Log out</a>
