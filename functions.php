@@ -1,6 +1,10 @@
 <?php
 
 	require_once("../../config.php");
+	
+//start server session to store data
+//in every file you want to access session you have to reqiore function
+	session_start();
 
 	function login ($user, $pass){
 		
@@ -19,6 +23,14 @@
 		//get the data
 		if($stmt->fetch()){
 			echo "user with id ".$id." logged in!";
+			
+				//create session variables
+				//redirect user
+				$_SESSION["user_id"] = $id;
+				$_SESSION["username"] = $user;
+				
+				header("Location: restrict.php");
+			
 		}else{
 			//wrong username or/and pass
 			echo "wrong credentional";
